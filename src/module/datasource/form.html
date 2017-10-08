@@ -1,0 +1,70 @@
+<form name="frmdataConnection" >
+<md-card>
+	<md-card-title>
+		<md-card-title-text>
+           <span class="md-headline">{{ page.isnew ? '新增' : page.item.name }}</span>
+         </md-card-title-text>
+	</md-card-title>
+	<md-card-content layout="column">
+		
+		<md-input-container>
+			<label>名称</label>
+	        <input md-maxlength="30" required md-no-asterisk name="name" ng-model="page.item.name" />
+	        <div ng-messages="frmdataConnection.name.$error">
+	          <div ng-message="required">必填项</div>
+	          <div ng-message="md-maxlength">最长30个字符</div>
+	        </div>
+		</md-input-container>
+		
+		<md-input-container>
+			<label>URL</label>
+	        <input md-maxlength="100" required md-no-asterisk name="url" ng-model="page.item.url" />
+	        <div ng-messages="frmdataConnection.url.$error">
+	          <div ng-message="required">必填项</div>
+	          <div ng-message="md-maxlength">最长100个字符</div>
+	        </div>
+		</md-input-container>
+		
+		<md-input-container>
+			<label>用户名</label>
+	        <input md-maxlength="30" required md-no-asterisk name="user" ng-model="page.item.user" />
+	        <div ng-messages="frmdataConnection.user.$error">
+	          <div ng-message="required">必填项</div>
+	          <div ng-message="md-maxlength">最长30个字符</div>
+	        </div>
+		</md-input-container>
+		
+		<md-input-container>
+			<label>密码</label>
+	        <input type="password" md-maxlength="30" required md-no-asterisk name="password" ng-model="page.item.password" />
+	        <div ng-messages="frmdataConnection.password.$error">
+	          <div ng-message="required">必填项</div>
+	          <div ng-message="md-maxlength">最长30个字符</div>
+	        </div>
+		</md-input-container>
+		
+		<md-input-container>
+			<label>类型</label>
+	        <md-select ng-model="page.item.type">
+	            <md-option value="JDBC">JDBC</md-option>
+	            <md-option value="CSV">CSV</md-option>
+	            <md-option value="JSON">JSON</md-option>
+	            <md-option value="TEXT">TEXT</md-option>
+	            <md-option value="HIVE">HIVE</md-option>
+	          </md-select>
+		</md-input-container>
+		
+		
+	</md-card-content>
+	<md-card-actions>
+		<md-button class="md-primary md-raised" ng-click="page.save()">
+			<md-icon md-font-icon="fa fa-save"></md-icon>
+			保存
+		</md-button>
+		<md-button class="md-raised" ui-sref="datasource">
+			<md-icon md-font-icon="fa fa-undo"></md-icon>
+			返回
+		</md-button>
+	</md-card-actions>
+</md-card>
+</form>

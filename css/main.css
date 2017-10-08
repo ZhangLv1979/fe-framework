@@ -1,0 +1,9 @@
+html {
+	font-family: "Lucida Grande", Lucida Sans Unicode, Hiragino Sans GB, WenQuanYi Micro Hei, Verdana, Aril, sans-serif;
+}
+
+#footer {
+	border-top: solid 1px #ccc;
+	padding: 16px;
+	text-align: center;
+}

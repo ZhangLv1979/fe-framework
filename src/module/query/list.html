@@ -1,0 +1,17 @@
+<div flex layout-padding layout="row" layout-align="end center">
+	<md-button class="md-icon-button" aria-label="添加" ui-sref="queryform({entity: {}})">
+		<md-icon  md-font-icon="fa fa-plus"></md-icon>
+	</md-button>
+</div>
+<md-list md-whiteframe="1">
+	<md-subheader class="md-no-sticky">{{page.title}}</md-subheader>
+	<md-list-item ng-repeat="item in page.items">
+		<p>{{item.name}}</p>
+		<md-button class="md-secondary md-icon-button" ng-click="page.delete(item)">
+			<md-icon  md-font-icon="fa fa-trash"></md-icon>
+		</md-button>
+		<md-button class="md-secondary md-icon-button" ui-sref="queryform({entity: item})">
+			<md-icon  md-font-icon="fa fa-edit"></md-icon>
+		</md-button>
+	</md-list-item>
+</md-list>

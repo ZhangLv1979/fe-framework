@@ -1,0 +1,52 @@
+<form name="frmDataTable">
+<md-card>
+	<md-card-title>
+		<md-card-title-text>
+           <span class="md-headline">{{ page.isnew ? '新增' : page.item.name }}</span>
+         </md-card-title-text>
+	</md-card-title>
+	<md-card-content layout="column">
+		
+		<md-input-container>
+			<label>表名</label>
+	        <input md-maxlength="30" required md-no-asterisk name="name" ng-model="page.item.name" />
+	        <div ng-messages="frmDataTable.name.$error">
+	          <div ng-message="required">必填项</div>
+	          <div ng-message="md-maxlength">最长30个字符</div>
+	        </div>
+		</md-input-container>
+		<md-input-container>
+			<label>物理表名</label>
+	        <input md-maxlength="30" required md-no-asterisk name="tablename" ng-model="page.item.tablename" />
+	        <div ng-messages="frmDataTable.tablename.$error">
+	          <div ng-message="required">必填项</div>
+	          <div ng-message="md-maxlength">最长30个字符</div>
+	        </div>
+		</md-input-container>
+		<md-input-container>
+			<label>别名</label>
+	        <input md-maxlength="30" required md-no-asterisk name="alias" ng-model="page.item.alias" />
+	        <div ng-messages="frmDataTable.alias.$error">
+	          <div ng-message="required">必填项</div>
+	          <div ng-message="md-maxlength">最长30个字符</div>
+	        </div>
+		</md-input-container>
+		<md-input-container>
+			<label>数据源</label>
+	        <md-select ng-model="page.item.connid">
+	            <md-option ng-repeat="conn in page.connections" ng-value="conn.connid">{{conn.name}}</md-option>
+	        </md-select>
+		</md-input-container>
+	</md-card-content>
+	<md-card-action>
+		<md-button class="md-primary md-raised" ng-click="page.save()">
+			<md-icon md-font-icon="fa fa-save"></md-icon>
+			保存
+		</md-button>
+		<md-button class="md-raised" ui-sref="datatable">
+			<md-icon md-font-icon="fa fa-undo"></md-icon>
+			返回
+		</md-button>
+	</md-card-action>
+</md-card>
+</form>
